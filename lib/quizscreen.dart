@@ -48,8 +48,13 @@ class _QuizScreenState extends State<QuizScreen> {
               if (currentindex != quizQuestions.length) {
                 pageController.jumpToPage(currentindex);
               } else {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultScreen(
+                              won: CorrectAnswers,
+                              Wrong: WrongAnswer,
+                            )));
               }
             } else {
               print("select Answer");
