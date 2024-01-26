@@ -30,19 +30,12 @@ class _QuizScreenState extends State<QuizScreen> {
         ),
         bottomNavigationBar: InkWell(
           onTap: () {
-            if (sahianswer != "") {
-              sahianswer = "";
-            }
             if (isAnswerlocked) {
               if (SelectedAnswer == correctAnswer) {
                 print("Good");
                 CorrectAnswers++;
-                print(
-                    "Correct Answer is $correctAnswer And You Won $CorrectAnswers Points");
               } else {
                 WrongAnswer++;
-                print(
-                    '$SelectedAnswer is Wrong Answer You Lose $WrongAnswer Point You have To Win the Match');
               }
               currentindex++;
               if (currentindex != quizQuestions.length) {
@@ -102,13 +95,6 @@ class _QuizScreenState extends State<QuizScreen> {
                               InkWell(
                                 onTap: () {
                                   setState(() {
-                                    if (SelectedAnswer != correctAnswer) {
-                                      sahianswer =
-                                          "The Seleted Answer $SelectedAnswer is Wrong Kindly Select the Correct Answer Otherwise Tap On Next To Proccede To Next Question";
-                                    } else {
-                                      sahianswer =
-                                          "Excellent The Correct Answer is  =  $SelectedAnswer";
-                                    }
                                     isAnswerlocked = true;
                                     SelectedAnswer = model.Options[index];
                                     correctAnswer = model.Answer;
@@ -138,7 +124,6 @@ class _QuizScreenState extends State<QuizScreen> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text("$sahianswer"),
                   ],
                 ),
               );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app01/cons.dart';
+import 'package:quiz_app01/createnewquiz.dart';
 import 'package:quiz_app01/quizscreen.dart';
 
 class StartPage extends StatelessWidget {
@@ -9,6 +10,39 @@ class StartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: frColor,
+      floatingActionButton: Container(
+        height: 60,
+        width: 90,
+        child: FloatingActionButton(
+          backgroundColor: bgcolor,
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => CreateNewQuiz()));
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.create),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Create New Quiz",
+                      style: TextStyle(fontSize: 10),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: bgcolor,
